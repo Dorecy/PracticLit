@@ -1,0 +1,39 @@
+﻿<Window x:Class="PraktikaLitvinov.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PraktikaLitvinov"
+        mc:Ignorable="d"
+        Title="Autorization" Height="650" Width="1200" Background="Orange"  Closing="Window_Closing" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Background="Orange" Grid.Column="5" Grid.Row="4" BorderBrush="Orange" >
+            <Image Source="/Images/glaz.png"/>
+        </Button>
+        <Image Source="/Images/login.png" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" />
+        <Image Source="/Images/password.png" Grid.Column="1" Grid.Row="4"  HorizontalAlignment="Right" />
+        <Button BorderBrush="Orange" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3"  FontWeight="Black" Content="Не зарегистрированы? Зарегистрироваться" FontSize="17" Background="Orange" Click="Button_Click" />
+        <TextBox Grid.Column="2" FontSize="30" Grid.Row="2" Grid.ColumnSpan="3" Name="Login" />
+        <TextBox Grid.Column="2" FontSize="30" Grid.Row="4" Grid.ColumnSpan="3" Name="Password" />
+        <Button Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="1" Name="Vhod"  Background="LightGreen" Content="Войти" FontSize="24" Click="Vhod_Click"  />
+    </Grid>
+</Window>
