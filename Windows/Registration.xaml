@@ -38,10 +38,10 @@
         <TextBlock Text="Password" FontSize="30" FontWeight="Black"  Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2"     />
         <TextBlock Text="Repeat password" FontSize="30" FontWeight="Black"  Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2"    />
         <Button BorderBrush="Orange" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="3" FontWeight="Black" Content="Уже зарегистрированы? Войти" FontSize="20" Background="Orange" Name="Vxod" Click="Vxod_Click"  />
-        <TextBox Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3" Name="emailreg" FontSize="22" />
-        <TextBox Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="3" Name="loginreg" FontSize="22"  />
-        <TextBox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Name="passwordreg" FontSize="22"  />
-        <TextBox Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="3" Name="povtorpasswordreg" FontSize="22" />
+        <TextBox Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3" x:Name="emailreg1" FontSize="22" />
+        <TextBox Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="3" x:Name="loginreg1" FontSize="22"  />
+        <TextBox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" x:Name="passwordreg1" FontSize="22"  />
+        <TextBox Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="3" x:Name="povtorpassword" FontSize="22" />
         <Button Grid.Column="2" FontSize="22"  Grid.Row="9" Content="Зарегистрироваться" Grid.ColumnSpan="3" Background="LightGreen" Name="Reg" Click="Reg_Click"/>
     </Grid>
 </Window>

@@ -22,7 +22,7 @@ namespace PraktikaLitvinov
     {
         public Registration()
         {
-            InitializeComponent();
+            
         }
 
         private void Vxod_Click(object sender, RoutedEventArgs e)
@@ -41,9 +41,9 @@ namespace PraktikaLitvinov
 
         private void Reg_Click(object sender, RoutedEventArgs e)
         {
-            var login = loginreg.Text;
-            var pass = passwordreg.Text;
-            var email = emailreg.Text;
+          /*  var login = loginreg1.Text;
+            var pass = passwordreg1.Text;
+            var email = emailreg1.Text;
 
             var context = new AppDbContext();
 
@@ -53,14 +53,15 @@ namespace PraktikaLitvinov
                 MessageBox.Show("Такой пользователь уже в клубе крутышек");
                 return;
             }
-            var user = new User { Login = login, Password = pass};
+            var user = new User { Login = login, Password = pass, Email = email};
             context.Users.Add(user);
             context.SaveChanges();
+            MessageBox.Show("Welcome to the club!");
             MainWindow avt = new MainWindow();
 
             avt.Show();
 
-            this.Hide();
+            this.Hide(); */
         }
     }
 }
