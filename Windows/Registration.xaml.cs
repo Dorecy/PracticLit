@@ -1,4 +1,5 @@
-﻿using PraktikaLitvinov.Classes;
+﻿
+using PraktikaLitvinov.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,46 +23,150 @@ namespace PraktikaLitvinov
     {
         public Registration()
         {
-            
+            InitializeComponent();
         }
 
-        private void Vxod_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow avt = new MainWindow();
-
-            avt.Show();
-
+            MainWindow aut = new MainWindow();
+            aut.Show();
             this.Hide();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            LoginErrorBox.Text = string.Empty;
+            EmailErrorBox.Text = string.Empty;
+            PasswordErrorBox.Text = string.Empty;
+            lg.BorderBrush = new SolidColorBrush(Colors.Black);
+            em.BorderBrush = new SolidColorBrush(Colors.Black);
+            ps1.BorderBrush = new SolidColorBrush(Colors.Black);
+            ps2.BorderBrush = new SolidColorBrush(Colors.Black);
+            var login = lg.Text;
+            var pass = ps1.Text;
+            var email = em.Text;
+            var pass2 = ps2.Text;
+            var Context = new AppDbContext();
+
+            var user_exists = Context.Users.FirstOrDefault(x => x.Login == login);
+            if (user_exists is not null)
+            {
+                MessageBox.Show("Такой пользователь уже купил компьютер");
+                return;
+            }
+            else if (LoginCheck() == false)
+            {
+                lg.BorderBrush = new SolidColorBrush(Colors.Red);
+                LoginErrorBox.Text = "Введите логин";
+            }
+            else if (EmailCheck() == false)
+            {
+                em.BorderBrush = new SolidColorBrush(Colors.Red);
+                return;
+            }
+            else if (PasswordCheck() == false)
+            {
+                ps1.BorderBrush = new SolidColorBrush(Colors.Red);
+                ps2.BorderBrush = new SolidColorBrush(Colors.Red);
+                return;
+            }
+            else
+            {
+                var User = new User { Login = login, Password = pass, Email = email };
+                Context.Users.Add(User);
+                Context.SaveChanges();
+                MessageBox.Show("Добро пожаловать в клуб обладателей компьютеров!");
+                MainWindow mainWindow = new MainWindow();
+                this.Hide();
+                mainWindow.Show();
+            }
+
+        }
+        private bool LoginCheck()
+        {
+            if (lg.Text.Length == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        private bool EmailCheck()
+        {
+            if (em.Text.Length == 0)
+            {
+                EmailErrorBox.Text = "Введите электронную почту";
+                return false;
+            }
+
+            if (em.Text.IndexOf("@") > -1)
+            {
+                if (em.Text.IndexOf(".", em.Text.IndexOf("@")) > em.Text.IndexOf("@"))
+                {
+                    return true;
+                }
+            }
+            EmailErrorBox.Text = "Формат введенной почты некорректен";
+            return false;
+        }
+        private bool PasswordCheck()
+        {
+            bool hasUpperCase = false;
+            bool hasDigit = false;
+            bool hasSpecialCharacter = false;
+            if (ps1.Text.Length < 6)
+            {
+                PasswordErrorBox.Text = "Пароль менее 6 символов";
+                return false;
+            }
+            foreach (char c in ps1.Text)
+            {
+                if (char.IsUpper(c))
+                {
+                    hasUpperCase = true;
+                }
+                else if (char.IsDigit(c))
+                {
+                    hasDigit = true;
+                }
+                else if (!char.IsLetterOrDigit(c))
+                {
+                    hasSpecialCharacter = true;
+                }
+            }
+            if (hasUpperCase == false)
+            {
+                PasswordErrorBox.Text = "Пароль не содержит букв верхнего регистра";
+                return false;
+            }
+            if (hasDigit == false)
+            {
+                PasswordErrorBox.Text = "Пароль не содержит цифр";
+                return false;
+            }
+            if (hasSpecialCharacter == false)
+            {
+                PasswordErrorBox.Text = "Пароль не содержит спецсимволов";
+                return false;
+            }
+            if (ps1.Text != ps2.Text)
+            {
+                PasswordErrorBox.Text = "Введенные пароли не совпадают";
+                return false;
+            }
+            return true;
+        }
+
+        private void lg_TextChanged(object sender, TextChangedEventArgs e)
+        {
+        }
+
+        private void ps1_TextChanged(object sender, TextChangedEventArgs e)
+        {
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Environment.Exit(0);
-        }
-
-        private void Reg_Click(object sender, RoutedEventArgs e)
-        {
-          /*  var login = loginreg1.Text;
-            var pass = passwordreg1.Text;
-            var email = emailreg1.Text;
-
-            var context = new AppDbContext();
-
-            var user_exists = context.Users.FirstOrDefault( x => x.Login == login);
-            if (user_exists is not null) 
-            {
-                MessageBox.Show("Такой пользователь уже в клубе крутышек");
-                return;
-            }
-            var user = new User { Login = login, Password = pass, Email = email};
-            context.Users.Add(user);
-            context.SaveChanges();
-            MessageBox.Show("Welcome to the club!");
-            MainWindow avt = new MainWindow();
-
-            avt.Show();
-
-            this.Hide(); */
         }
     }
 }

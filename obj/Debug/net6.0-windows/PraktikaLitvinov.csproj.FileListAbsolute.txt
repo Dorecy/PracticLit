@@ -135,5 +135,5 @@ C:\Users\Student\Desktop\PracticLit\obj\Debug\net6.0-windows\refint\PraktikaLitv
 C:\Users\Student\Desktop\PracticLit\obj\Debug\net6.0-windows\PraktikaLitvinov.pdb
 C:\Users\Student\Desktop\PracticLit\obj\Debug\net6.0-windows\PraktikaLitvinov.genruntimeconfig.cache
 C:\Users\Student\Desktop\PracticLit\obj\Debug\net6.0-windows\ref\PraktikaLitvinov.dll
-C:\Users\Student\Desktop\PracticLit\obj\Debug\net6.0-windows\Windows\kruto.g.cs
-C:\Users\Student\Desktop\PracticLit\obj\Debug\net6.0-windows\Windows\kruto.baml
+C:\Users\Student\Desktop\PracticLit\obj\Debug\net6.0-windows\Windows\Hi.g.cs
+C:\Users\Student\Desktop\PracticLit\obj\Debug\net6.0-windows\Windows\Hi.baml

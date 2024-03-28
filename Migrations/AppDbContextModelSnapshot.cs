@@ -23,11 +23,11 @@ namespace PraktikaLitvinov.Migrations
 
             modelBuilder.Entity("PraktikaLitvinov.Classes.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -41,7 +41,7 @@ namespace PraktikaLitvinov.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Users");
                 });
